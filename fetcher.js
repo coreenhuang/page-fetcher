@@ -15,9 +15,13 @@ request(url, (error, response, body) => {
     fs.writeFile(localFilePath, body, (error) => {
       if (error) {
         console.log('error:', error); 
+      } else {
+        console.log(`Downloaded and saved ${body.length} bytes to ${localFilePath}`); 
       }
-      console.log(`Downloaded and saved ${body.length} bytes to ${localFilePath}`); 
     })
   }
 
 });
+
+//> node fetcher.js http://www.example.edu/ ./index.html
+// Downloaded and saved 1235 bytes to ./index.html
